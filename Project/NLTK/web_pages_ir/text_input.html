@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <title>Obfuscation</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <style>
+        body {
+            /*    background-color: #039be5;*/
+            background-image: url("../images/bg-min.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            max-width: 100%;
+        }
+
+        .container-outer {
+            background: rgba(0, 0, 0, .7);
+            -webkit-backdrop-filter: grayscale(1) contrast(3) blur(10px);
+            backdrop-filter: grayscale(1) contrast(3) blur(1px);
+            z-index: 100;
+            min-width: 100%;
+            max-width: 100%;
+            min-height: 100%;
+            max-height: device-height;
+            color: #ffffff;
+        }
+        /* label focus color */
+        .input-field textarea + label {
+            color: #ffffff !important;
+        }
+        /* label underline focus color */
+        .input-field textarea:focus {
+            border-bottom: 1px solid #fff !important;
+            box-shadow: 0 1px 0 0 #fff !important;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-outer">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="card-panel blue darken-3 white-text">
+                <h4>Detecting text obfuscation</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m6 s12">
+                <div class="card-panel blue darken-2 white-text">
+                    <p>Enter the sentence(s) in the text area below and click submit button.
+                        <br>
+                    <div class="input-field">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Click here to write</label>
+                        <br>
+                        <button class="btn btn-large black darken-4" id="submit">SUBMIT</button>
+                    </div>
+
+                    </p>
+                </div>
+            </div>
+            <div class="col m6 s12">
+                <div class="card-panel blue darken-2 white-text">
+                    <p>
+                        <h4>Result : </h4>
+                    <br>
+
+                        <br>
+                        <span id="result"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+</div>
+</body>
+<script src="../materialize/js/jquery.js"></script>
+<script src="../materialize/js/materialize.min.js"></script>
+<script>
+
+
+    document.getElementById("submit").addEventListener("click", function () {
+        $.ajax({
+            crossDomain:true,
+            url:'http://localhost:8081?message='+document.getElementById("textarea1").value,
+            method: 'get',
+            beforeSend: function () {
+                document.getElementById("result").innerHTML = "Please wait for the result";
+            },
+            success: function (result) {
+
+                var res = JSON.parse(result);
+                console.log(res);
+                var display_res = "";
+                for(var i=0;i<res.length;i++){
+                    display_res += "<br>Sentence : "+res[i].sentence+"<br> Obfuscated term :"+res[i].Obfuscated_Term+"<br> Red_Flagged : "+res[i].Red_Flagged;
+                }
+                document.getElementById("result").innerHTML = display_res;
+
+            },
+            error: function (result) {
+
+                document.getElementById("result").innerHTML = "Error, please try again";
+            }
+        });
+    });
+
+</script>
+</html>

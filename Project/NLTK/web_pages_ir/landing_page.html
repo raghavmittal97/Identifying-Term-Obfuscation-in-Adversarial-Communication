@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <title>Obfuscation</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <style>
+        body {
+            /*    background-color: #039be5;*/
+            background-image: url("../images/bg-min.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            max-width: 100%;
+        }
+
+        .slider {
+            height: 450px;
+        }
+
+        #typing_para {
+            color: white;
+            font-size: 20px;
+            margin: 20px 0 0px 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 30em;
+            animation: type 4s steps(60, end);
+        }
+
+        #typing_para:nth-child(2) {
+            animation: type2 4s steps(60, end);
+        }
+
+        .typing_span {
+            animation: blink 1s infinite;
+        }
+
+        .mic {
+            margin-left: 40%;
+        }
+
+        @keyframes type {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes type2 {
+            0% {
+                width: 0;
+            }
+            50% {
+                width: 0;
+            }
+            100% {
+                width: 100;
+            }
+        }
+
+        @keyframes blink {
+            to {
+                opacity: .0;
+            }
+        }
+
+        ::selection {
+            background: black;
+        }
+
+        .card-panel {
+            height: 160px;
+        }
+
+        a {
+            color: black;
+        }
+
+        .container-outer {
+            background: rgba(0, 0, 0, .7);
+            -webkit-backdrop-filter: grayscale(1) contrast(3) blur(10px);
+            backdrop-filter: grayscale(1) contrast(3) blur(1px);
+            z-index: 100;
+            min-width: 100%;
+            max-width: 100%;
+            min-height: 100%;
+            max-height: device-height;
+            color: #ffffff;
+        }
+
+        .description-panel{
+            background: rgba(0, 0, 0, 0);
+            height: 420px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-outer">
+    <!--<div class="row">
+        <img src="../images/image.jpg" class="slider z-depth-3">
+    </div>-->
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="card-panel white-text description-panel">
+                <h1 class="center">
+                    Hide 'n' Seek
+                </h1><br>
+                <h5 class="center">
+                    Web based app for detecting adverserial communication using lexical resources like NLTK and ConceptNet
+                </h5>
+                <br>
+                <br>
+                <h5>Team : </h5>
+                <h5>Manisha, Mohit, Paras, Raghav</h5><br>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m6 s12">
+                <a href="text_input.html">
+                    <div class="card-panel blue darken-4 white-text">
+                        Click Here for detecting text obfuscation
+                        <hr>
+                        <p id="typing_para">
+                            <br>
+                            Attacking President with roses <span class="typing_span">|</span>
+                        </p>
+                        <br>
+                    </div>
+                </a>
+            </div>
+            <div class="col m6 s12">
+                <a href="voice_obfuscation.html">
+                    <div class="card-panel blue darken-4 white-text">
+                        Click Here for detecting voice obfuscation
+                        <hr>
+                        <img src="../images/mic.svg" class="mic">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+    <div class="section"></div>
+</div>
+</body>
+</html>
