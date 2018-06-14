@@ -1,0 +1,6 @@
+shortcomings:
+
+what if the tokens are bilingual
+what if a singlw word is replaced by two words e.g.,
+pistol for shooting president
+water baloon for shooting president
